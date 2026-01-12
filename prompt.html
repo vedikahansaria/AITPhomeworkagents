@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generation Prompt</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: auto; padding: 20px; background-color: #f9f9f9; }
+        .container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h2 { color: #444; }
+        .prompt-box { border-left: 5px solid #28a745; background-color: #f1f8e9; padding: 20px; font-style: italic; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Original System Prompt</h2>
+        <p>The following prompt was used to generate the Python implementation for this project:</p>
+        
+        <div class="prompt-box">
+"Act as a Senior Data Scientist. I need a Python script to predict customer churn based on a provided dataset. 
+
+Please follow these steps:
+1. **Data Loading:** Load a CSV file using Pandas.
+2. **Preprocessing:** - Check for missing values.
+   - Encode categorical variables (e.g., 'Gender', 'Contract Type') using OneHotEncoding or LabelEncoding.
+   - Scale numerical features if necessary.
+3. **Exploratory Analysis:** Generate a correlation heatmap and distribution plots for the target variable.
+4. **Model Building:** Split the data into training and testing sets (80/20). Train a Logistic Regression model.
+5. **Evaluation:** Print the classification report (precision, recall, f1-score) and display a confusion matrix.
+6. **Code Quality:** Ensure the code is modular, well-commented, and handles potential errors gracefully."
+        </div>
+    </div>
+</body>
+</html>
