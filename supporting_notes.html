@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Technical Implementation Notes</title>
+    <style>
+        body { font-family: 'Georgia', serif; line-height: 1.8; color: #222; max-width: 750px; margin: 0 auto; padding: 40px; }
+        h1 { font-family: 'Arial', sans-serif; font-weight: bold; color: #333; }
+        h3 { color: #0056b3; margin-top: 30px; }
+        .note { background-color: #fff3cd; border: 1px solid #ffeeba; padding: 15px; border-radius: 4px; font-size: 0.9em; }
+        ul { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <h1>Implementation Logic & Methodology</h1>
+    <p>These notes document the technical decisions made during the creation of the Churn Prediction model.</p>
+
+    <h3>1. Data Cleaning Strategy</h3>
+    <p>Raw data is rarely ready for modeling. The script handles missing values by imputing the median (for numerical data) or the mode (for categorical data). This prevents the model from crashing due to null values.</p>
+
+    <h3>2. Feature Engineering</h3>
+    <p>Machine Learning models require numerical input. We applied <strong>One-Hot Encoding</strong> to categorical variables (like turning "Yes/No" into 1/0). This allows the algorithm to mathematically weigh categorical differences.</p>
+    
+    <div class="note">
+        <strong>Why Scaling?</strong> We used <code>StandardScaler</code> on numerical features (like Tenure or Monthly Charges) to ensure that features with larger ranges don't dominate the objective function of the algorithm.
+    </div>
+
+    <h3>3. Model Selection: Logistic Regression</h3>
+    <p>We selected Logistic Regression for the baseline model because:</p>
+    <ul>
+        <li>It is highly interpretable (we can see which features impact churn most).</li>
+        <li>It is computationally efficient.</li>
+        <li>It provides probability scores, not just binary classifications.</li>
+    </ul>
+
+    <h3>4. Evaluation Metrics</h3>
+    <p>Accuracy alone is misleading in churn prediction because usually, most customers <em>don't</em> churn. Therefore, we focus on:</p>
+    <ul>
+        <li><strong>Recall:</strong> Of all the people who actually churned, how many did we correctly identify? (Crucial for retention).</li>
+        <li><strong>Precision:</strong> Of the people we labeled as "At Risk," how many actually churned?</li>
+    </ul>
+
+</body>
+</html>
